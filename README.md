@@ -363,7 +363,7 @@ que se lleve el consumo de la CPU demasiado alto.
 
 ![Imágen 2](images/part1/preguntas_4.PNG)
 
-![Imágen 2](images/part1/preguntas_4.1.PNG)
+![Imágen 2](images/part1/preguntas_4.1.png)
 
 5. 
 
