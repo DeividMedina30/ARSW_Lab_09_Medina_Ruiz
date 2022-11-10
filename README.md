@@ -346,6 +346,83 @@ crearon 7 recursos. Sus nombres se aprecian mejor en la imagen.
 
    Hace referencia a la clave SSH.
 
+3. 
+
+La aplicación se cae por la sencilla razón de que al momento de cerrar la conexión SSH,
+esta cierra automáticamente la ejecución de la aplicación.
+
+La razón para crear un Inbound port rule antes de acceder al servicio, es que debido a que el
+puerto se encuentra cerrado y no va a permitir consultas.
+
+4. 
+
+La función tarda demasiado debido a que no se esta implementando alguna forma de guardar
+valores anteriores, ya sea guardando su estado, llevando un diccionario de valores o usando funciones recursivas,
+por lo tanto, cada consulta debe calcular el valor desde 0 haciendo
+que se lleve el consumo de la CPU demasiado alto.
+
+![Imágen 2](images/part1/preguntas_4.PNG)
+
+![Imágen 2](images/part1/preguntas_4.1.PNG)
+
+5. 
+
+Se puede conlcuir que consume mucha cpu, ya que la función no se hace de forma recursiva.
+
+![Imágen 2](images/part1/preguntas_5.PNG)
+
+6. 
+
+Primero que nada cabe recalcar que las siguente toma de datos se hizo en la maquina
+virtual Labtainer con sistema operativo Ubuntu en virtual Box.
+
+Se ve que el tiempo total de duración de ejecución fue de 3 minutos con 31 segundos.
+
+Tiempo promedio de respuesta fue de 23.9 s
+
+Los fallos que se tuvieron fueron 4, se concluye que suceden en el momento que la aplciación recibe una
+sobrecarga de peticiones por parte del cliente.
+
+![Imágen 2](images/part1/11.12.PNG)
+
+7. 
+
+Fuente
+
+https://learn.microsoft.com/es-es/azure/virtual-machines/sizes-b-series-burstable
+
+* "B1ls solo admite imágenes de Linux y, si implementa cualquier otra imagen del sistema operativo, es posible que no obtenga la mejor experiencia del cliente."
+
+
+![Imágen 2](images/part1/preguntas_7.PNG)
+
+8. 
+
+Para el caso de Postman si sirve pero no mucho, ya que no se nota un cambio significativo
+en la reducción de tiempo, por otro lado en costos vemos que si incrementa bastante.
+
+9. 
+
+El primer cambio negativo que se observa es el de costos. Por otro lado si la petición 
+que realice el cliente fuera constante el tiempo que tarda en levantar el nuevo tamaño es 
+muy largo.
+
+10. 
+
+En el tiempo de respuesta variaba muy poco, algunas consultas si eran mejor, mientras que
+otras simplemente no se notaba el cambio.
+
+En el consumo de CPU, si notamos mejoras, ya que la primera vez que se realizó las pruebas, se observa
+un pico de consumo promedio de 71.92%, y en la segunda prueba 47.75% 
+
+![](images/part1/preguntas_10.png)
+
+![](images/part1/preguntas_10.2.png)
+
+11. 
+
+![](images/part1/preguntas_11.PNG)
+
 ### Parte 2 - Escalabilidad horizontal
 
 #### Crear el Balanceador de Carga
