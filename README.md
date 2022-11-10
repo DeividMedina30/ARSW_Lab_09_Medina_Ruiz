@@ -433,21 +433,57 @@ Antes de continuar puede eliminar el grupo de recursos anterior para evitar gast
 
 ![](images/part2/part2-lb-create.png)
 
+Rta//
+
+![](images/part2/1.1.PNG)
+
+![](images/part2/1.2.PNG)
+
+![](images/part2/1.3.PNG)
+
 2. A continuación cree un *Backend Pool*, guiese con la siguiente imágen.
 
 ![](images/part2/part2-lb-bp-create.png)
+
+Rta//
+
+![](images/part2/2.1.PNG)
+
+![](images/part2/2.2.PNG)
 
 3. A continuación cree un *Health Probe*, guiese con la siguiente imágen.
 
 ![](images/part2/part2-lb-hp-create.png)
 
+Rta//
+
+![](images/part2/3.PNG)
+
+![](images/part2/3.1.PNG)
+
 4. A continuación cree un *Load Balancing Rule*, guiese con la siguiente imágen.
 
 ![](images/part2/part2-lb-lbr-create.png)
 
+Rta//
+
+![](images/part2/4.1.PNG)
+
+![](images/part2/4.2.PNG)
+
 5. Cree una *Virtual Network* dentro del grupo de recursos, guiese con la siguiente imágen.
 
 ![](images/part2/part2-vn-create.png)
+
+Rta//
+
+![](images/part2/5.PNG)
+
+![](images/part2/5.1.PNG)
+
+![](images/part2/5.3.PNG)
+
+![](images/part2/5.4.PNG)
 
 #### Crear las maquinas virtuales (Nodos)
 
@@ -457,9 +493,21 @@ Ahora vamos a crear 3 VMs (VM1, VM2 y VM3) con direcciones IP públicas standar 
 
 ![](images/part2/part2-vm-create1.png)
 
+Rta//
+
+![](images/Creando%20Maquinas%20Virtuales/1.1.PNG)
+
+![](images/Creando%20Maquinas%20Virtuales/1.2.PNG)
+
 2. En la configuración de networking, verifique que se ha seleccionado la *Virtual Network*  y la *Subnet* creadas anteriormente. Adicionalmente asigne una IP pública y no olvide habilitar la redundancia de zona.
 
 ![](images/part2/part2-vm-create2.png)
+
+Rta//
+
+![](images/Creando%20Maquinas%20Virtuales/2.1.PNG)
+
+![](images/Creando%20Maquinas%20Virtuales/2.2.PNG)
 
 3. Para el Network Security Group seleccione "avanzado" y realice la siguiente configuración. No olvide crear un *Inbound Rule*, en el cual habilite el tráfico por el puerto 3000. Cuando cree la VM2 y la VM3, no necesita volver a crear el *Network Security Group*, sino que puede seleccionar el anteriormente creado.
 
@@ -519,6 +567,99 @@ newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALAN
 * Informe de newman 1 (Punto 2)
 * Presente el Diagrama de Despliegue de la solución.
 
+Rta//
+
+1. 
+Encontramos 3 tipos de balanceadores de carga.
+* Load Balancer estándar: 
+
+"Standard Load Balancer enruta el tráfico dentro y entre regiones y a las zonas de disponibilidad para obtener una gran resiliencia."
+
+* Gateway Load Balancer:
+
+"Habilite escenarios que necesitan encadenamiento de servicios como el análisis, la protección contra DDoS, firewall y mucho más."
+
+* Load Balancer básico
+
+"Admite aplicaciones a pequeña escala que no necesitan alta disponibilidad o redundancia."
+
+Fuente:
+
+https://azure.microsoft.com/es-es/products/load-balancer/#features
+
+2. 
+
+"El grupo de back-end es un componente crítico del equilibrador de carga. El grupo de back-end define el grupo de recursos que atenderán el tráfico para una regla de equilibrio de carga determinada"
+
+Fuente:
+
+https://learn.microsoft.com/en-us/azure/load-balancer/backend-pool-management
+
+3. 
+
+"Azure Load Balancer usa sondeos de estado para supervisar el estado de las instancias de back-end. En este artículo, aprenderá a administrar sondeos de estado para Azure Load Balancer."
+
+Fuente:
+
+https://learn.microsoft.com/en-us/azure/load-balancer/manage-probes-how-to
+
+4. 
+
+Load Balancer rules
+
+"Se usa una regla de equilibrador de carga para definir cómo se distribuye el tráfico entrante a todas las instancias dentro del grupo de back-end."
+
+Fuente:
+
+https://learn.microsoft.com/en-us/azure/load-balancer/components
+
+5. 
+
+Virtual Network
+
+"Azure Virtual Network (VNet) es el bloque de creación fundamental de una red privada en Azure. VNet permite muchos tipos de recursos de Azure, como Azure Virtual Machines (máquinas virtuales), para comunicarse de forma segura entre usuarios, con Internet y con las redes locales."
+
+Subnet
+
+"La delegación de subred permite designar una subred concreta para el servicio PaaS de Azure que se prefiera e insertarla en una red virtual. La delegación de subred proporciona al cliente control total al cliente de la administración de la integración de los servicios de Azure en sus redes virtuales."
+
+address space
+
+"Al crear una red virtual, debe especificar un espacio de direcciones IP privado personalizado mediante direcciones públicas y privadas (RFC 1918). Azure asigna a los recursos de una red virtual una dirección IP privada desde el espacio de direcciones que usted asigne."
+
+address range
+
+"El intervalo debe estar dentro del espacio de direcciones que ingresó para la red virtual. El rango más pequeño que puede especificar es /29, que proporciona ocho direcciones IP para la subred."
+
+Fuentes:
+
+https://learn.microsoft.com/es-es/azure/virtual-network/virtual-networks-overview
+
+https://learn.microsoft.com/es-es/azure/virtual-network/subnet-delegation-overview
+
+https://learn.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices
+
+https://learn.microsoft.com/en-us/azure/virtual-network/manage-virtual-network
+
+6. 
+
+Availability Zone
+
+"Están diseñadas para ayudarlo a lograr la confiabilidad de sus cargas de trabajo críticas para el negocio. Azure mantiene múltiples geografías. Estas demarcaciones discretas definen la recuperación ante desastres y los límites de residencia de datos en una o varias regiones de Azure. "
+
+Fuente:
+
+https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview
+
+7. 
+
+Network Security Group
+
+"Puede usar un grupo de seguridad de red de Azure para filtrar el tráfico de red entre los recursos de Azure en una red virtual de Azure. Un grupo de seguridad de red contiene reglas de seguridad que permiten o deniegan el tráfico de red entrante o el tráfico de red saliente desde varios tipos de recursos de Azure. Para cada regla, puede especificar el origen y el destino, el puerto y el protocolo."
+
+Fuente:
+
+https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
 
 
 
